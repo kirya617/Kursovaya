@@ -7,3 +7,5 @@
 void hangman(int);
 
 int getrand(int, int);
+
+int length_string(char*);

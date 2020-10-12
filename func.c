@@ -2,7 +2,8 @@
 
 void hangman(int n){ //функция выводящая на экран изображение виселицы
     switch (n) {
-    case 9: printf("  ____ |\n |   | |\n |   O |\n |  /|\\|\n_|_ / \\|  "); break;    case 8: printf("  ____ |\n |   | |\n |   O |\n |  /|\\|\n_|_ /  |  "); break;
+    case 9: printf("  ____ |\n |   | |\n |   O |\n |  /|\\|\n_|_ / \\|  "); break;    
+    case 8: printf("  ____ |\n |   | |\n |   O |\n |  /|\\|\n_|_ /  |  "); break;
     case 7: printf("  ____ |\n |   | |\n |   O |\n |  /|\\|\n_|_    |  "); break;
     case 6: printf("  ____ |\n |   | |\n |   O |\n |  /| |\n_|_    |  "); break;
     case 5: printf("  ____ |\n |   | |\n |   O |\n |   | |\n_|_    |  "); break;
@@ -18,4 +19,11 @@ int getrand(int min, int max) //Функция генерации случайн
 {
     srand(time(NULL));
     return (int)rand() / (RAND_MAX + 1.0) * (max - min) + min;
+}
+
+int length_string(char *string)
+{
+    int i;
+    for (i = 0; string[i] != '\0'; i++);
+    return i;
 }
