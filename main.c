@@ -7,7 +7,7 @@ int main(){
         printf("Ошибка открытия файла!\n");
         return 1;
     }
-    int sizeFile = 0, sizeWord, i, k = 0, err = 0;
+    int sizeFile = 0, sizeWord, stayed_char, i, k = 0, err = 0, count = 0;
     char buffer[40], word[40] = {0}, *keyword, symbols[20] = {0}, symbol;
     while (fscanf(words, "%s", buffer) != EOF)
         sizeFile++;
@@ -17,14 +17,15 @@ int main(){
     fclose(words);
 
     sizeWord = length_string(word);
+    stayed_char = sizeWord;
 //    keyword = (char *)malloc(sizeWord);
-    char *unknown_Word = (char *)malloc(sizeWord);
+    char *unknown_Word = calloc(sizeWord, sizeof(char));
     for (i = 0; i < sizeWord; i++){
         unknown_Word[i] = '_';
 //        keyword[i] = word[i];
     }    
     
-    while (sizeWord >= 0 && err <= 9){
+    while (stayed_char >= 0 && err <= 9){
 //        system("clear");
         if (k == 1)
             err++;
@@ -41,17 +42,25 @@ int main(){
         printf("Введенные буквы: %s\n", symbols);
         printf("Введите букву: ");
         scanf("%s", &symbol);
-        if ((int)symbol >= -32 && (int)symbol <= -1) { 
-            symbol = (char)((int)symbol - 32);
-            printf ("%s\n", symbol);
+        k = 1;
+        for (i = 0; i < sizeWord; i++){
+            if (word[i] == symbol){
+                k = 0;
+                stayed_char--;
+                unknown_Word[i] = word[i];
+            }
         }
-
-
+        symbols[count++] = symbol;
+        
     }
-
+    
+    
 
 
 
     return 0;
 }
+
+
+
 

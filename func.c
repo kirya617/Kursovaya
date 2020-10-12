@@ -23,7 +23,8 @@ int getrand(int min, int max) //Функция генерации случайн
 
 int length_string(char *string)
 {
-    int i;
-    for (i = 0; string[i] != '\0'; i++);
+    int i = 0;
+    while(string[i] != '\0')
+        i++;
     return i;
 }
