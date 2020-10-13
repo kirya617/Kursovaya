@@ -49,6 +49,8 @@ int main(){
         scanf("%s", &symbol);
         k = 1;
         for (i = 0; i < sizeWord; i++){
+            if (symbol >= 65 && symbol <= 90)
+                symbol = symbol + 32;
             if (word[i] == symbol){
                 k = 0;
                 stayed_char--;
