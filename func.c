@@ -21,7 +21,7 @@ int getrand(int min, int max) //Функция генерации случайн
     return (int)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
 
-int length_string(char *string)
+int length_string(char *string) //Функция определения длины строки
 {
     int i = 0;
     while(string[i] != '\0')

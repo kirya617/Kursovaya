@@ -57,6 +57,10 @@ int main(){
                 unknown_Word[i] = word[i];
             }
         }
+        if (symbol >= 122 || symbol <= 97){
+            k = 0;
+            continue;
+        }
         for (i = 0; i < count;){
             if (symbols[i] == symbol){
                 k = 0;
