@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 
-void hangman(int);
+int hangman(int);
 
 int getrand(int, int);
 

@@ -1,1 +1,9 @@
 language: c
+
+compiler: gcc
+
+script: 
+    - make
+    - make test
+    - git ls-files | xargs clang-format -i
+    - git ls-files test/ | xargs clang-format -i
