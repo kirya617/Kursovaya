@@ -1,23 +1,44 @@
+flags = -Wall -Werror
 
+all: src	
 
-Prog: main.o func.o
-	gcc -Wall -g -O0 -o Prog main.o func.o
+test: test
 
-main.o: main.c
-	gcc -Wall -g -O0 -c main.c
+run:
+	    ./bin/Hangman
 
-func.o: func.c
-	gcc -Wall -g -O0 -c func.c
+test_run:
+	    ./bin/test
 
+#src
+
+src: build/src build/src/main.o build/src/func.o
+	    gcc $(flags) build/src/*.o -o bin/Hangman
+
+build/src:
+	    mkdir -p build/src
+
+build/src/main.o: src/main.c
+	    gcc $(flags) -c src/main.c -o build/src/main.o
+
+build/src/func.o: src/func.c
+	    gcc $(flags) -c src/func.c -o build/src/func.o
 
 #test
 
-test: test test/test.o test/test_func.o
-	gcc -Wall test/*.o func.o -o Test
+build/test:
+	    mkdir -p build/test	
 
-test/main.o: test/test.c
-	gcc -Wall -c test/test.c -o test/test.o
+test: build/test build/test/test.o build/test/test_func.o
+	    gcc $(flags) build/test/*.o build/src/func.o -o bin/test
 
-test/test_func.o: test/test_func.c
-	gcc -Wall -c test/test_func.c -o test/test_func.o
+build/test/test.o: test/test.c
+	    gcc $(flags) -c test/test.c -o build/test/test.o
 
+build/test/test_func.o: test/test_func.c
+	    gcc $(flags) -c test/test_func.c -o build/test/test_func.o
+
+.PHONY: clean all
+
+clean:
+	    rm -rf build/src/* bin/* build/test/*
