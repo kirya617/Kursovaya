@@ -2,7 +2,7 @@ language: c
 
 compiler: gcc
 
-c:
+gcc:
     - 7.5.0
 
 script: 
