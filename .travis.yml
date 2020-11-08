@@ -1,9 +1,6 @@
 language: c
 
-compiler: gcc
-
-gcc:
-    - 7.5.0
+compiler: gcc-7.5.0
 
 script: 
     - make
