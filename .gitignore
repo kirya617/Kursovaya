@@ -1,3 +1,6 @@
 Prog
 Hangman
 *.o
+*.log
+*.txt
+
