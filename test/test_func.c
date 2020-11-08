@@ -64,7 +64,7 @@ CTEST(getrand, getrand_3)
 
 CTEST(length_string, length_string_1)
 {
-    char m[5] = "HellO";
+    char m[6] = "HellO";
     int real = length_string(m);
     const int expected = 5;
     ASSERT_EQUAL(expected, real);

@@ -2,5 +2,4 @@ test
 Hangman
 *.o
 *.log
-*.txt
 
